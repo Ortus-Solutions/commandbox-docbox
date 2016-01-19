@@ -22,7 +22,7 @@ You can pass the strategy options by prefixing them with `strategy-`. So if a st
 
 Examples:
 ```bash
-docbox run source=/path/to/coldbox mapping=coldbox excludes=tests strategy-outputDir=/output/path strategy-projectTitle="My Docs"
+docbox generate source=/path/to/coldbox mapping=coldbox excludes=tests strategy-outputDir=/output/path strategy-projectTitle="My Docs"
 ```
 
 Arguments:
