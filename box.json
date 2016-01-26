@@ -24,5 +24,8 @@
     ],
     "dependencies":{
 		"docbox":"docbox"
+    },
+    "installPaths":{
+		"docbox":"docbox"
     }
 }
