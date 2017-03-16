@@ -20,7 +20,7 @@ component {
 	**/
 	function run( 
 		string strategy="docbox.strategy.api.HTMLAPIStrategy",
-		required string source,
+		string source = "",
 		string mapping,
 		string excludes
 	){
@@ -50,7 +50,10 @@ component {
 		}
 
 		// init docbox with default strategy and properites
-		var docbox = new docbox.DocBox( strategy=arguments.strategy, properties=properties );
+		var docbox = new "commandbox-docbox.docbox.DocBox"(
+			strategy = arguments.strategy,
+			properties = properties
+		);
 		
 		print.yellowLine( "Source: #arguments.source# ")
 			.yellowLine( "Mapping: #arguments.mapping#" )
