@@ -23,7 +23,7 @@
         "Brad Wood (brad@bradwood.com)"
     ],
     "dependencies":{
-		"docbox":"docbox"
+		"docbox":"^2.0.0"
     },
     "installPaths":{
 		"docbox":"docbox"
