@@ -1,15 +1,15 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"1.0.0",
-	"author":"Ortus Solutions, Corp",
-	"homepage":"http://www.ortussolutions.com",
-	"documentation":"https://github.com/Ortus-Solutions/DocBox/wiki",
+    "version":"1.0.1",
+    "author":"Ortus Solutions, Corp",
+    "homepage":"http://www.ortussolutions.com",
+    "documentation":"https://github.com/Ortus-Solutions/DocBox/wiki",
     "repository":{
         "type":"git",
         "url":"https://github.com/Ortus-Solutions/commandbox-docbox"
     },
-	"bugs":"https://github.com/Ortus-Solutions/commandbox-docbox/issues",
-	"shortDescription":"CommandBox command for generating API docs from the command line.",
+    "bugs":"https://github.com/Ortus-Solutions/commandbox-docbox/issues",
+    "shortDescription":"CommandBox command for generating API docs from the command line.",
     "slug":"commandbox-docbox",
     "type":"commandbox-modules",
     "keywords":"apidocs, coldfusion docs, javadocs",
@@ -20,12 +20,17 @@
         }
     ],
     "contributors":[
-        "Brad Wood (brad@bradwood.com)"
-    ],
+        "Brad Wood (brad@bradwood.com)"],
     "dependencies":{
-		"docbox":"^2.0.0"
+        "docbox":"^2.0.0"
     },
     "installPaths":{
-		"docbox":"docbox"
-    }
+        "docbox":"docbox"
+    },
+    "scripts":{
+        "postVersion":"package set location='Ortus-Solutions/commandbox-docbox#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push --follow-tags"
+    },
+    "location":"Ortus-Solutions/commandbox-docbox#v1.0.1"
 }
