@@ -20,12 +20,13 @@
         }
     ],
     "contributors":[
-        "Brad Wood (brad@bradwood.com)"],
+        "Brad Wood (brad@bradwood.com)"
+    ],
     "dependencies":{
         "docbox":"^2.0.0"
     },
     "installPaths":{
-        "docbox":"docbox"
+        "docbox":"docbox/"
     },
     "scripts":{
         "postVersion":"package set location='Ortus-Solutions/commandbox-docbox#v`package version`'",
