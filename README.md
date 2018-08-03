@@ -24,6 +24,10 @@ Examples:
 ```bash
 docbox generate source=/path/to/coldbox mapping=coldbox excludes=tests strategy-outputDir=/output/path strategy-projectTitle="My Docs"
 ```
+Multiple source mappings may be specified.
+```bash
+docbox generate source="[{'dir':'../src/modules_app/v1/models', 'mapping':'v1.models'}, {'dir':'../src/modules_app/v2/models', 'mapping':'v2.models'}]" strategy-outputDir=docbox strategy-projectTitle="My API"
+```
 
 Arguments:
 * strategy - The strategy class to use to generate the docs.
