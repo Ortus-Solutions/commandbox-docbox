@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"1.0.1",
+    "version":"1.2.0",
     "author":"Ortus Solutions, Corp",
     "homepage":"http://www.ortussolutions.com",
     "documentation":"https://github.com/Ortus-Solutions/DocBox/wiki",
@@ -20,17 +20,19 @@
         }
     ],
     "contributors":[
-        "Brad Wood (brad@bradwood.com)"],
+        "Brad Wood (brad@bradwood.com)",
+        "Joseph Lamoree (@jlamoree)"
+    ],
     "dependencies":{
         "docbox":"^2.0.0"
     },
     "installPaths":{
-        "docbox":"docbox"
+        "docbox":"docbox/"
     },
     "scripts":{
         "postVersion":"package set location='Ortus-Solutions/commandbox-docbox#v`package version`'",
-        "onRelease":"publish",
+        "onRelease":"!git checkout master; !git merge --no-ff development; publish",
         "postPublish":"!git push --follow-tags"
     },
-    "location":"Ortus-Solutions/commandbox-docbox#v1.0.1"
+    "location":"Ortus-Solutions/commandbox-docbox#v1.2.0"
 }

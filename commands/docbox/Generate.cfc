@@ -7,6 +7,11 @@
  * {code:bash}
  * docbox run source=/path/to/coldbox mapping=coldbox excludes=tests strategy-outputDir=/output/path strategy-projectTitle="My Docs"
  * {code}
+ *
+ * Multiple source mappings may be specified.
+ * {code:bash}
+ * docbox generate source="[{'dir':'../src/modules_app/v1/models', 'mapping':'v1.models'}, {'dir':'../src/modules_app/v2/models', 'mapping':'v2.models'}]" strategy-outputDir=docbox strategy-projectTitle="My API"
+ * {code}
  **/
 component {
 
@@ -16,24 +21,39 @@ component {
 	* @strategy.options docbox.strategy.api.HTMLAPIStrategy,docbox.strategy.uml2tools.XMIStrategy
 	* @source Either, the string directory source, OR a JSON array of structs containing 'dir' and 'mapping' key
 	* @mapping The base mapping for the folder. Only required if the source is a string
-	* @excludes	A regex that will be applied to the input source to exclude from the docs 
+	* @excludes	A regex that will be applied to the input source to exclude from the docs
 	**/
-	function run( 
+	function run(
 		string strategy="docbox.strategy.api.HTMLAPIStrategy",
 		string source = "",
 		string mapping,
 		string excludes
 	){
+		var docboxSourceMaps = [];
 
-		// Inflate source from JSON
-		if( isJSON( arguments.source ) ){ arguments.source = deserializeJSON( arguments.source ); }
-		// Verify mapping?
-		if( isSimpleValue( arguments.source ) and ( isNull( arguments.mapping ) OR !len( arguments.mapping ) ) ){
-			return error( "The mapping argument was not sent, please send it." );
+		if (isJSON(arguments.source)) {
+			// Deserialize the array of directory/mapping structures from JSON. Then copy what seems to be valid.
+			arguments.source = deserializeJSON(arguments.source);
+			if (!isArray(arguments.source)) {
+				return error("The source argument should be a JSON serialized array of structures, each having a key for 'dir' and 'mapping'.");
+			}
+			for (var tuple in arguments.source) {
+				if (!structKeyExists(tuple, "dir") || len(tuple.dir) == 0 || !structKeyExists(tuple, "mapping") || len(tuple.mapping) == 0) {
+					print.yellowLine("Skipping invalid source mapping.");
+					continue;
+				}
+				tuple.dir = variables.fileSystemUtil.resolvePath(tuple.dir);
+				arrayAppend(docboxSourceMaps, tuple);
+			}
+		} else {
+			// Basic usage; provide a source directory and a mapping as separate arguments
+			arrayAppend(docboxSourceMaps, {"dir": variables.fileSystemUtil.resolvePath(arguments.source), "mapping": arguments.mapping});
 		}
 
-		// Inflate outputs
-		arguments.source = fileSystemUtil.resolvePath( arguments.source );
+		// We should have at least one valid source mapping, or don't bother continuing
+		if (arrayLen(docboxSourceMaps) == 0) {
+			return error("No valid source mappings found. Type `help docbox Generate` for guidance.")
+		}
 
 		// Inflate strategy properties
 		var properties = {};
@@ -54,24 +74,30 @@ component {
 			strategy = arguments.strategy,
 			properties = properties
 		);
-		
-		print.yellowLine( "Source: #arguments.source# ")
-			.yellowLine( "Mapping: #arguments.mapping#" )
-			.yellowLine( "Output: #properties.outputDir#")
+
+		// Provide a little feedback when something is horribly wrong.
+		for (var tuple in docboxSourceMaps) {
+			if (!directoryExists(tuple.dir)) {
+				print.redLine("Warning: '#tuple.dir#' does not exist.");
+			} else {
+				print.yellowLine("Source: #tuple.dir#")
+					.yellowLine("Mapping: #tuple.mapping#");
+			}
+		}
+
+		print.yellowLine( "Output: #properties.outputDir#")
 			.redLine( "Starting Generation, please wait..." )
 			.toConsole();
 
-		// Create mapping
+		// Create mappings
 		var mappings = getApplicationSettings().mappings;
-		mappings[ "/#arguments.mapping#" ] = arguments.source;
-		application action='update' mappings='#mappings#';
+		for (var tuple in docboxSourceMaps) {
+			mappings["/" & replace(tuple.mapping, ".", "/", "all")] = tuple.dir;
+		}
+		application action="update" mappings=mappings;
 
-		// generate
-		docbox.generate( 
-			source 		= arguments.source, 
-			mapping  	= arguments.mapping, 
-			excludes 	= arguments.excludes
-		);
+		// Generate
+		docbox.generate(source=docboxSourceMaps, excludes=arguments.excludes);
 
 		print.greenLine( "Generation complete" );
 	}
