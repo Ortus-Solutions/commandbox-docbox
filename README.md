@@ -24,16 +24,20 @@ Examples:
 ```bash
 docbox generate source=/path/to/coldbox mapping=coldbox excludes=tests strategy-outputDir=/output/path strategy-projectTitle="My Docs"
 ```
-Multiple source mappings may be specified.
+Multiple mappings may be specified, where the key is the mapping and the value is the source directory. For example, the following generates documentation for two different versions of a model:
 ```bash
-docbox generate source="[{'dir':'../src/modules_app/v1/models', 'mapping':'v1.models'}, {'dir':'../src/modules_app/v2/models', 'mapping':'v2.models'}]" strategy-outputDir=docbox strategy-projectTitle="My API"
+docbox generate mappings:v1.models=/path/to/modules_app/v1/models mappings:v2.models=/path/to/modules_app/v2/models strategy-outputDir=/output/path strategy-projectTitle="My Docs"
 ```
 
 Arguments:
-* strategy - The strategy class to use to generate the docs.
-* source - Either, the string directory source, OR a JSON array of structs containing 'dir' and 'mapping' key
-* mapping - The base mapping for the folder. Only required if the source is a string
-* excludes - A regex that will be applied to the input source to exclude from the docs
+
+* `strategy` - The strategy class to use to generate the docs.
+* `source` - The directory containing the CFML source.
+* `mapping` - The base mapping for the source folder.
+* `excludes` - A regex that will be applied to the input source to exclude from the docs.
+* `mappings:*` - One or more dynamic parameters defining source and mapping. This argument will override `source` and `mapping` if provided.
+
+
 
 ----
 

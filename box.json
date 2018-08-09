@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"1.0.1",
+    "version":"1.3.1",
     "author":"Ortus Solutions, Corp",
     "homepage":"http://www.ortussolutions.com",
     "documentation":"https://github.com/Ortus-Solutions/DocBox/wiki",
@@ -26,12 +26,12 @@
         "docbox":"^2.0.0"
     },
     "installPaths":{
-        "docbox":"docbox/"
+        "docbox":"docbox"
     },
     "scripts":{
         "postVersion":"package set location='Ortus-Solutions/commandbox-docbox#v`package version`'",
         "onRelease":"publish",
         "postPublish":"!git push --follow-tags"
     },
-    "location":"Ortus-Solutions/commandbox-docbox#v1.0.1"
+    "location":"Ortus-Solutions/commandbox-docbox#v1.3.1"
 }
