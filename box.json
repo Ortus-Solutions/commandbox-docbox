@@ -1,7 +1,8 @@
 {
     "name":"CommandBox DocBox Commands",
     "version":"2.0.0",
-	"location": "forgeboxStorage",
+    "location":"https://downloads.ortussolutions.com/ortussolutions/commandbox-modules/commandbox-docbox/@build.version@/commandbox-docbox-@build.version@.zip",
+    "slug":"commandbox-docbox",
     "author":"Ortus Solutions, Corp",
     "homepage":"https://www.ortussolutions.com",
     "documentation":"https://docbox.ortusbooks.com",
@@ -11,7 +12,6 @@
     },
     "bugs":"https://github.com/Ortus-Solutions/commandbox-docbox/issues",
     "shortDescription":"CommandBox command for generating API docs from the command line via DocBox",
-    "slug":"commandbox-docbox",
     "type":"commandbox-modules",
     "keywords":"apidocs, coldfusion docs, javadocs",
     "license":[
@@ -27,14 +27,14 @@
         "docbox":"^3.0.0"
     },
     "installPaths":{
-        "docbox":"docbox"
+        "docbox":"docbox/"
     },
     "scripts":{
         "postVersion":"package set location='Ortus-Solutions/commandbox-docbox#v`package version`'",
         "onRelease":"publish",
         "postPublish":"!git push --follow-tags",
-		"format":"cfformat run commands,ModuleConfig.cfc --overwrite",
-        "format:watch":"cfformat watch commands,ModuleConfig.cfc",
-        "format:check":"cfformat check commands,ModuleConfig.cfc"
+        "format":"cfformat run commands,build,ModuleConfig.cfc --overwrite",
+        "format:watch":"cfformat watch commands,build,ModuleConfig.cfc",
+        "format:check":"cfformat check commands,build,ModuleConfig.cfc"
     }
 }

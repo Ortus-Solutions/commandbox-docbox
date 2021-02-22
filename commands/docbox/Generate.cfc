@@ -16,11 +16,12 @@ component {
 
 	/**
 	 * Run DocBox to generate your docs
+	 *
 	 * @strategy The strategy class to use to generate the docs.
 	 * @strategy.options docbox.strategy.api.HTMLAPIStrategy,docbox.strategy.uml2tools.XMIStrategy
 	 * @source The directory source
 	 * @mapping The base mapping for the folder.
-	 * @excludes	A regex that will be applied to the input source to exclude from the docs
+	 * @excludes A regex that will be applied to the input source to exclude from the docs
 	 * @mappings A struct provided by the dynamic parameters facility of CommandBox that defines one or more mappings.
 	 **/
 	function run(
@@ -92,8 +93,7 @@ component {
 			}
 		}
 
-		print
-			.yellowLine( "Output: #properties.outputDir#" )
+		print.yellowLine( "Output: #properties.outputDir#" )
 			.redLine( "Starting Generation, please wait..." )
 			.toConsole();
 
@@ -110,7 +110,7 @@ component {
 			excludes = arguments.excludes
 		);
 
-		print.greenLine( "Generation complete" );
+		print.greenBoldLine( "√ Generation complete" );
 	}
 
 }

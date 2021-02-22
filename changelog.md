@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Upgraded to DocBox v3
 * Code Quality updates
+* Automated testing, code quality and s3 binaries
 
 ----
 
