@@ -39,7 +39,7 @@ script:
   # run our dependency installs so we can do our CLI Integration tests
   - box install
   # Create the CommandBox modules folder, for some reason it is not created
-  - mkdir -p .CommandBox/cfml/modules
+  - mkdir -p ${HOME}/.CommandBox/cfml/modules
   # Build Project
   - box task run taskfile=build/Build :version=${TARGET_VERSION} :projectName=${MODULE_ID} :buildID=${TRAVIS_BUILD_NUMBER} :branch=${TRAVIS_BRANCH}
 
