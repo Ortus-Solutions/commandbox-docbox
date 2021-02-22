@@ -36,8 +36,10 @@ script:
   - echo "Starting build for ${MODULE_ID} v${TARGET_VERSION}"
   # Replace version so builder can issue it
   - box package set version=@build.version@+@build.number@
-  # run our dependency installs so we can do tests
+  # run our dependency installs so we can do our CLI Integration tests
   - box install
+  # Create the CommandBox modules folder, for some reason it is not created
+  - mkdir $TRAVIS_BUILD_DIR/.CommandBox/cfml/modules -p
   # Link the module
   - box link
   # Build Project
