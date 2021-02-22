@@ -30,9 +30,7 @@
         "docbox":"docbox/"
     },
     "scripts":{
-        "postVersion":"package set location='Ortus-Solutions/commandbox-docbox#v`package version`'",
-        "onRelease":"publish",
-        "postPublish":"!git push --follow-tags",
+		"release":"recipe build/release.boxr",
         "format":"cfformat run commands,build,ModuleConfig.cfc --overwrite",
         "format:watch":"cfformat watch commands,build,ModuleConfig.cfc",
         "format:check":"cfformat check commands,build,ModuleConfig.cfc"
