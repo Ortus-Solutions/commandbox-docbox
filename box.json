@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"2.0.0",
+    "version":"2.1.0",
     "location":"https://downloads.ortussolutions.com/ortussolutions/commandbox-modules/commandbox-docbox/@build.version@/commandbox-docbox-@build.version@.zip",
     "slug":"commandbox-docbox",
     "author":"Ortus Solutions, Corp",
@@ -30,7 +30,7 @@
         "docbox":"docbox/"
     },
     "scripts":{
-		"release":"recipe build/release.boxr",
+        "release":"recipe build/release.boxr",
         "format":"cfformat run commands,build,ModuleConfig.cfc --overwrite",
         "format:watch":"cfformat watch commands,build,ModuleConfig.cfc",
         "format:check":"cfformat check commands,build,ModuleConfig.cfc"
