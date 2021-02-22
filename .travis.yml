@@ -40,6 +40,8 @@ script:
   - box install
   # Create the CommandBox modules folder, for some reason it is not created
   - mkdir -p ${HOME}/.CommandBox/cfml/modules
+  # Link up the module so we can do testing!
+  - box link --force
   # Build Project
   - box task run taskfile=build/Build :version=${TARGET_VERSION} :projectName=${MODULE_ID} :buildID=${TRAVIS_BUILD_NUMBER} :branch=${TRAVIS_BRANCH}
 

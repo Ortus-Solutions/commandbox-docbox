@@ -89,14 +89,7 @@ component {
 	 */
 	function runTests(){
 		// Tests First, if they fail then exit
-		print.blueLine( "+ Testing the package, please wait..." ).toConsole();
-
-		// Let's just link this module, the `buildDocs()` will dictate if the command works or not
-		// We are eating our dog chow here!
-		print.redLine( "  + Linking module into running CommandBox..." ).toConsole();
-		command( "link" )
-			.flags( "force"	)
-			.run();
+		print.blueLine( "+ Testing is done via the `docs()` command in this module." ).toConsole();
 
 		// Check Exit Code?
 		if ( shell.getExitCode() ) {
