@@ -1,6 +1,6 @@
 # DocBox Commands
 
-DocBox Commands is a custom command you can install into CommandBox to generate API docs from the commandline.  Documentation for DocBox can be found on the [GitHub Wiki][1] and in this Readme. The main Git repository and downloads can be found on [GitHub][2].  There is also a help forum located at https://groups.google.com/a/ortussolutions.com/forum/#!forum/docbox
+DocBox Commands is a custom command you can install into CommandBox to generate API (reference) documentation from the commandline. For the main DocBox project, see [DocBox on GitHub][1] or the [DocBox usage documentation][2].
 
 ## LICENSE
 Apache License, Version 2.0.
@@ -50,6 +50,6 @@ I THANK GOD FOR HIS WISDOM FOR THIS PROJECT
 
 "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12
 
-[1]: https://github.com/Ortus-Solutions/DocBox/wiki
+[1]: https://docbox.ortusbooks.com/
 [2]: https://github.com/Ortus-Solutions/DocBox
 
