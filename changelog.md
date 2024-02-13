@@ -19,10 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Upgraded to DocBox v3
-* Code Quality updates
-* Automated testing, code quality and s3 binaries
+- Upgraded to DocBox v3
+- Code Quality updates
+- Automated testing, code quality and s3 binaries
 
 ## [v1.0.0] => 2018-AUG-3
 
-* Initial creation of separate CommandBox project
+- Initial creation of separate CommandBox project
