@@ -3,12 +3,15 @@
 DocBox Commands is a custom command you can install into CommandBox to generate API (reference) documentation from the commandline. For the main DocBox project, see [DocBox on GitHub][1] or the [DocBox usage documentation][2].
 
 ## LICENSE
+
 Apache License, Version 2.0.
 
 ## SYSTEM REQUIREMENTS
+
 - CommandBox 2.5+
 
 ## Installation
+
 Install the commands via CommandBox like so:
 ```bash
 box install commandbox-docbox
@@ -31,16 +34,14 @@ docbox generate mappings:v1.models=/path/to/modules_app/v1/models mappings:v2.mo
 
 Arguments:
 
-* `strategy` - The strategy class to use to generate the docs.
-* `source` - The directory containing the CFML source.
-* `mapping` - The base mapping for the source folder.
-* `excludes` - A regex that will be applied to the input source to exclude from the docs.
-* `mappings:*` - One or more dynamic parameters defining source and mapping. This argument will override `source` and `mapping` if provided.
-
+- `strategy` - The strategy class to use to generate the docs.
+- `source` - The directory containing the CFML source.
+- `mapping` - The base mapping for the source folder.
+- `excludes` - A regex that will be applied to the input source to exclude from the docs.
+- `mappings:*` - One or more dynamic parameters defining source and mapping. This argument will override `source` and `mapping` if provided.
 
 
 ----
-
 
 # CREDITS & CONTRIBUTIONS
 
@@ -52,4 +53,3 @@ I THANK GOD FOR HIS WISDOM FOR THIS PROJECT
 
 [1]: https://docbox.ortusbooks.com/
 [2]: https://github.com/Ortus-Solutions/DocBox
-

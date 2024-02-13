@@ -1,0 +1,57 @@
+name: Test Suites
+
+# We are a reusable Workflow only
+on:
+  workflow_call:
+    secrets:
+      SLACK_WEBHOOK_URL:
+        required: true
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "11"
+
+      - name: Setup CommandBox CLI
+        uses: Ortus-Solutions/setup-commandbox@v2.0.1
+
+      # Not Needed in this module
+      #- name: Setup Environment For Testing Process
+      #  run: |
+      #    # Setup .env
+      #    touch .env
+      #    # ENV
+      #    printf "DB_HOST=localhost\n" >> .env
+      #    printf "DB_DATABASE=mydatabase\n" >> .env
+      #    printf "DB_DRIVER=MySQL\n" >> .env
+      #    printf "DB_USER=${{ env.DB_USER }}\n" >> .env
+      #    printf "DB_PASSWORD=${{ env.DB_PASSWORD }}\n" >> .env
+      #    printf "DB_CLASS=com.mysql.cj.jdbc.Driver\n" >> .env
+      #    printf "DB_BUNDLEVERSION=8.0.19\n" >> .env
+      #    printf "DB_BUNDLENAME=com.mysql.cj\n" >> .env
+
+      - name: Install Test Harness Dependencies
+        run: |
+          box install
+
+      - name: Run Tests
+        run: |
+          # Create the CommandBox modules folder, for some reason it is not created
+          mkdir -p ~/.CommandBox/cfml/modules
+          # Link up the module so we can do testing!
+          box link --force
+          # Test
+          box task run taskfile=build/Build target="runTests"
+
+      - name: Failure Logs
+        if: failure()
+        run: cat `box system-log`
