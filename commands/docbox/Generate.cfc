@@ -93,7 +93,8 @@ component {
 			}
 		}
 
-		print.yellowLine( "Output: #properties.outputDir#" )
+		print
+			.yellowLine( "Output: #properties.outputDir#" )
 			.redLine( "Starting Generation, please wait..." )
 			.toConsole();
 
