@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"2.0.0",
+    "version":"2.1.0",
     "location":"https://downloads.ortussolutions.com/ortussolutions/commandbox-modules/commandbox-docbox/@build.version@/commandbox-docbox-@build.version@.zip",
     "slug":"commandbox-docbox",
     "author":"Ortus Solutions, Corp",
@@ -23,16 +23,26 @@
     "contributors":[
         "Brad Wood (brad@bradwood.com)"
     ],
+	"devDependencies":{
+        "commandbox-cfformat":"*"
+    },
     "dependencies":{
         "docbox":"^3.0.0"
     },
     "installPaths":{
         "docbox":"docbox/"
     },
+	"ignore":[
+        "**/.*",
+        "test-harness",
+        "/server*.json"
+    ],
     "scripts":{
-		"release":"recipe build/release.boxr",
-        "format":"cfformat run commands,build,ModuleConfig.cfc --overwrite",
-        "format:watch":"cfformat watch commands,build,ModuleConfig.cfc",
-        "format:check":"cfformat check commands,build,ModuleConfig.cfc"
+        "build:module":"task run taskFile=build/Build.cfc :projectName=`package show slug` :version=`package show version`",
+        "build:docs":"task run taskFile=build/Build.cfc target=docs :projectName=`package show slug` :version=`package show version`",
+        "format":"cfformat run commands,models,build,ModuleConfig.cfc ./.cfformat.json --overwrite",
+        "format:watch":"cfformat watch commands,models,build,ModuleConfig.cfc ./.cfformat.json",
+        "format:check":"cfformat check commands,models,build,ModuleConfig.cfc ./.cfformat.json",
+        "release":"recipe build/release.boxr"
     }
 }

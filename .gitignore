@@ -1,7 +1,12 @@
 # Dependencies
 /docbox/**
+modules/**
 
 # Build Artifacts
+.DS_Store
 .tmp/**
 .artifacts/**
 changelog-latest.md
+
+# Test App
+testapp/**
