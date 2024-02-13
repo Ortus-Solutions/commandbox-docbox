@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"2.2.0",
+    "version":"2.3.0",
     "location":"https://downloads.ortussolutions.com/ortussolutions/commandbox-modules/commandbox-docbox/@build.version@/commandbox-docbox-@build.version@.zip",
     "slug":"commandbox-docbox",
     "author":"Ortus Solutions, Corp",
