@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Bumped core `DocBox` to version 4.x
+
+## [2.1.0] - 2024-02-13
+
+### Added
+
 - Updated to new module layout
 - Updated all dependencies
 - Migration to Github Actions

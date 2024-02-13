@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"2.1.0",
+    "version":"2.2.0",
     "location":"https://downloads.ortussolutions.com/ortussolutions/commandbox-modules/commandbox-docbox/@build.version@/commandbox-docbox-@build.version@.zip",
     "slug":"commandbox-docbox",
     "author":"Ortus Solutions, Corp",
@@ -23,16 +23,16 @@
     "contributors":[
         "Brad Wood (brad@bradwood.com)"
     ],
-	"devDependencies":{
+    "devDependencies":{
         "commandbox-cfformat":"*"
     },
     "dependencies":{
-        "docbox":"^3.0.0"
+        "docbox":"^4.0.0"
     },
     "installPaths":{
         "docbox":"docbox/"
     },
-	"ignore":[
+    "ignore":[
         "**/.*",
         "test-harness",
         "/server*.json"
