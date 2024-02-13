@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Bumped core `DocBox` to version 4.x
+
 ## [2.1.0] - 2024-02-13
 
 ### Added

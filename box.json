@@ -27,7 +27,7 @@
         "commandbox-cfformat":"*"
     },
     "dependencies":{
-        "docbox":"^3.0.0"
+        "docbox":"^4.0.0"
     },
     "installPaths":{
         "docbox":"docbox/"
