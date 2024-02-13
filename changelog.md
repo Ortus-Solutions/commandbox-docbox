@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2024-02-13
+
 ### Added
 
 - Updated to new module layout
@@ -26,3 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [v1.0.0] => 2018-AUG-3
 
 - Initial creation of separate CommandBox project
+
+[Unreleased]: https://github.com/Ortus-Solutions/commandbox-docbox/compare/v2.1.0...HEAD
+
+[2.1.0]: https://github.com/Ortus-Solutions/commandbox-docbox/compare/59900a295f22f08394115666b0ef8634b3c83abf...v2.1.0
