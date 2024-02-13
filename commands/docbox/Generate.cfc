@@ -11,6 +11,11 @@
  * {code:bash}
  * docbox generate mappings:v1.models=/path/to/modules_app/v1/models mappings:v2.models=/path/to/modules_app/v2/models strategy-outputDir=/output/path strategy-projectTitle="My Docs"
  * {code}
+ *
+ * Multiple source mappings may be specified.
+ * {code:bash}
+ * docbox generate source="[{'dir':'../src/modules_app/v1/models', 'mapping':'v1.models'}, {'dir':'../src/modules_app/v2/models', 'mapping':'v2.models'}]" strategy-outputDir=docbox strategy-projectTitle="My API"
+ * {code}
  **/
 component {
 
