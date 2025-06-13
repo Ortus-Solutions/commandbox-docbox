@@ -5,7 +5,7 @@ on:
   workflow_call:
     secrets:
       SLACK_WEBHOOK_URL:
-        required: true
+        required: false
 
 jobs:
   tests:
@@ -19,13 +19,14 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
-          java-version: "11"
+          java-version: "21"
 
       - name: Setup CommandBox CLI
         uses: Ortus-Solutions/setup-commandbox@v2.0.1
 
       # Not Needed in this module
       #- name: Setup Environment For Testing Process
+      #  working-directory: ./test-harness
       #  run: |
       #    # Setup .env
       #    touch .env
