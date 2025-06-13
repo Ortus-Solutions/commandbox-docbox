@@ -5,6 +5,13 @@ on:
     branches:
       - 'development'
 
+  workflow_dispatch:
+
+# Unique group name per workflow-branch/tag combo
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ##########################################################################################
   # Module Tests
@@ -18,7 +25,7 @@ jobs:
   ##########################################################################################
   format:
     name: Code Auto-Formatting
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -28,7 +35,7 @@ jobs:
           cmd: run-script format
 
       - name: Commit Format Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: Apply cfformat changes
 

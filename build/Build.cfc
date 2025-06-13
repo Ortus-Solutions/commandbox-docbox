@@ -15,7 +15,6 @@ component {
 		variables.apiDocsURL   = "http://localhost:60299/apidocs/";
 		variables.testRunner   = "http://localhost:60299/tests/runner.cfm";
 		variables.exportsDir   = "";
-		variables.moduleName   = "commandbox-docbox";
 
 		// Source Excludes Not Added to final binary: You can use REGEX
 		variables.excludes = [
@@ -39,7 +38,7 @@ component {
 		} );
 
 		// Create Project Dependency Mappings
-		fileSystemUtil.createMapping( variables.moduleName, variables.cwd );
+		fileSystemUtil.createMapping( "@module_name@", variables.cwd );
 
 		return this;
 	}
@@ -209,7 +208,7 @@ component {
 			.params(
 				"source"                = "commands",
 				"excludes"              = "",
-				"mapping"               = variables.moduleName,
+				"mapping"               = "@module_name@",
 				"strategy-projectTitle" = "#arguments.projectName# v#arguments.version#",
 				"strategy-outputDir"    = arguments.outputDir
 			)
