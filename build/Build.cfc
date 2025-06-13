@@ -299,9 +299,9 @@ component {
 	 */
 	private function ensureExportDir(
 		required projectName,
-		version   = "1.0.0"
+		version = "1.0.0"
 	){
-		if ( structKeyExists( variables, "exportsDir" ) && directoryExists( variables.exportsDir ) ){
+		if ( structKeyExists( variables, "exportsDir" ) && directoryExists( variables.exportsDir ) ) {
 			return;
 		}
 		// Prepare exports directory
