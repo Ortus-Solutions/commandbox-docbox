@@ -41,11 +41,7 @@ component {
 		var docboxSourceMaps = []
 
 		// If mappings has been provided, it overrides the traditional source and mapping arguments.
-		if (
-			!isNull( arguments.mappings ) && isStruct( arguments.mappings ) && structCount(
-				arguments.mappings
-			)
-		) {
+		if ( !isNull( arguments.mappings ) && isStruct( arguments.mappings ) && structCount( arguments.mappings ) ) {
 			for ( var key in arguments.mappings ) {
 				arrayAppend(
 					docboxSourceMaps,
