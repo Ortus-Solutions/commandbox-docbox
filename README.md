@@ -13,6 +13,7 @@ Apache License, Version 2.0.
 ## Installation
 
 Install the commands via CommandBox like so:
+
 ```bash
 box install commandbox-docbox
 ```
@@ -24,10 +25,13 @@ Creates documentation for CFCs JavaDoc style via DocBox
 You can pass the strategy options by prefixing them with `strategy-`. So if a strategy takes in a property of `outputDir` you will pass it as `strategy-outputdir=`
 
 Examples:
+
 ```bash
 docbox generate source=/path/to/coldbox mapping=coldbox excludes=tests strategy-outputDir=/output/path strategy-projectTitle="My Docs"
 ```
+
 Multiple mappings may be specified, where the key is the mapping and the value is the source directory. For example, the following generates documentation for two different versions of a model:
+
 ```bash
 docbox generate mappings:v1.models=/path/to/modules_app/v1/models mappings:v2.models=/path/to/modules_app/v2/models strategy-outputDir=/output/path strategy-projectTitle="My Docs"
 ```

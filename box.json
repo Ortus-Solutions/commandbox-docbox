@@ -13,7 +13,7 @@
     "bugs":"https://github.com/Ortus-Solutions/commandbox-docbox/issues",
     "shortDescription":"CommandBox command for generating API docs from the command line via DocBox",
     "type":"commandbox-modules",
-    "keywords":"apidocs, coldfusion docs, javadocs",
+    "keywords":"apidocs, docs, javadocs",
     "license":[
         {
             "type":"Apache2",
@@ -27,7 +27,7 @@
         "commandbox-cfformat":"*"
     },
     "dependencies":{
-        "docbox":"^4.0.0"
+        "docbox":"*"
     },
     "installPaths":{
         "docbox":"docbox/"
