@@ -58,8 +58,14 @@ jobs:
 
       - name: Build ${{ env.MODULE_ID }}
         run: |
+          # Create the CommandBox modules folder, for some reason it is not created
+          mkdir -p ~/.CommandBox/cfml/modules
+          # Link up the module so we can do testing!
+          box link --force
+          # Needed to fix changelog formatting
           npm install -g markdownlint-cli
           markdownlint changelog.md --fix
+          # Install dependencies and build
           box install
           box task run taskfile=build/Build target=run :version=${{ env.VERSION }} :projectName=${{ env.MODULE_ID }} :buildID=${{ github.run_number }} :branch=${{ env.BRANCH }}
 
