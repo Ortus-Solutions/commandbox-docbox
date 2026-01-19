@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"2.3.0",
+    "version":"2.4.0",
     "location":"https://downloads.ortussolutions.com/ortussolutions/commandbox-modules/commandbox-docbox/@build.version@/commandbox-docbox-@build.version@.zip",
     "slug":"commandbox-docbox",
     "author":"Ortus Solutions, Corp",
@@ -13,7 +13,7 @@
     "bugs":"https://github.com/Ortus-Solutions/commandbox-docbox/issues",
     "shortDescription":"CommandBox command for generating API docs from the command line via DocBox",
     "type":"commandbox-modules",
-    "keywords":"apidocs, coldfusion docs, javadocs",
+    "keywords":"apidocs, docs, javadocs",
     "license":[
         {
             "type":"Apache2",
@@ -24,10 +24,11 @@
         "Brad Wood (brad@bradwood.com)"
     ],
     "devDependencies":{
+		"commandbox-boxlang":"*",
         "commandbox-cfformat":"*"
     },
     "dependencies":{
-        "docbox":"^4.0.0"
+        "docbox":"^5.0.0"
     },
     "installPaths":{
         "docbox":"docbox/"
