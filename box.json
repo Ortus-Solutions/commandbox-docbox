@@ -1,6 +1,6 @@
 {
     "name":"CommandBox DocBox Commands",
-    "version":"2.4.0",
+    "version":"2.5.0",
     "location":"https://downloads.ortussolutions.com/ortussolutions/commandbox-modules/commandbox-docbox/@build.version@/commandbox-docbox-@build.version@.zip",
     "slug":"commandbox-docbox",
     "author":"Ortus Solutions, Corp",
@@ -24,7 +24,7 @@
         "Brad Wood (brad@bradwood.com)"
     ],
     "devDependencies":{
-		"commandbox-boxlang":"*",
+        "commandbox-boxlang":"*",
         "commandbox-cfformat":"*"
     },
     "dependencies":{
