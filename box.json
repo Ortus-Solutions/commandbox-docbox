@@ -24,10 +24,11 @@
         "Brad Wood (brad@bradwood.com)"
     ],
     "devDependencies":{
+		"commandbox-boxlang":"*",
         "commandbox-cfformat":"*"
     },
     "dependencies":{
-        "docbox":"*"
+        "docbox":"^5.0.0"
     },
     "installPaths":{
         "docbox":"docbox/"
